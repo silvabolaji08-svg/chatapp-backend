@@ -5,7 +5,7 @@ const { protect } = require('../middleware/auth')
 
 const router = express.Router()
 
-// Get messages for a chat
+
 router.get('/:chatId', protect, async (req, res) => {
   try {
     const messages = await Message.find({ chat: req.params.chatId })
@@ -18,7 +18,7 @@ router.get('/:chatId', protect, async (req, res) => {
   }
 })
 
-// Send a message
+
 router.post('/', protect, async (req, res) => {
   try {
     const { chatId, content } = req.body

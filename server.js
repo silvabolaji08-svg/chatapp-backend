@@ -12,7 +12,11 @@ dotenv.config()
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: ['https://chatapp-zeta-nine.vercel.app', 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}))
 app.use(express.json())
 
 mongoose.connect(process.env.MONGODB_URI)

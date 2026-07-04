@@ -5,7 +5,7 @@ const { protect } = require('../middleware/auth')
 
 const router = express.Router()
 
-// Get all chats for a user
+
 router.get('/', protect, async (req, res) => {
   try {
     const chats = await Chat.find({ participants: req.user._id })
@@ -19,7 +19,7 @@ router.get('/', protect, async (req, res) => {
   }
 })
 
-// Create or access a direct chat
+
 router.post('/', protect, async (req, res) => {
   try {
     const { userId } = req.body
@@ -46,7 +46,7 @@ router.post('/', protect, async (req, res) => {
   }
 })
 
-// Create group chat
+
 router.post('/group', protect, async (req, res) => {
   try {
     const { name, participants } = req.body
